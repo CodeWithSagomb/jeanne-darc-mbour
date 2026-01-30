@@ -1,0 +1,256 @@
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { FileText, Calendar, CreditCard, AlertCircle, CheckCircle, Phone } from 'lucide-react';
+
+const admissionData = [
+    {
+        cycle: 'Préscolaire',
+        ages: '3 - 5 ans',
+        documents: [
+            '1 extrait de naissance',
+            '2 photos d\'identité'
+        ],
+        test: false
+    },
+    {
+        cycle: 'Élémentaire',
+        ages: '6 - 11 ans',
+        documents: [
+            '1 extrait de naissance',
+            '2 photos d\'identité',
+            '1 certificat de scolarité'
+        ],
+        test: true
+    },
+    {
+        cycle: 'Collège (6ème - 5ème)',
+        ages: '12 - 14 ans',
+        documents: [
+            '3 extraits de naissance',
+            '2 photos d\'identité',
+            '1 certificat de scolarité',
+            '1 livret scolaire'
+        ],
+        test: true
+    }
+];
+
+const Admissions = () => {
+    return (
+        <div className="bg-cream min-h-screen">
+
+            {/* Hero */}
+            <section className="relative py-32 gradient-uniform overflow-hidden">
+                <div className="absolute inset-0 opacity-20">
+                    <img
+                        src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                        alt="Inscription"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+
+                <div className="container mx-auto px-6 relative z-10 text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                    >
+                        <span className="text-gold uppercase tracking-widest text-base md:text-lg font-bold mb-4 block">
+                            École Académique Bilingue
+                        </span>
+                        <h1 className="font-serif text-4xl md:text-6xl text-white mb-6">Admissions 2025/2026</h1>
+                        <p className="text-white text-lg max-w-2xl mx-auto">
+                            Rejoignez notre communauté éducative. Les inscriptions sont ouvertes pour tous les cycles.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Conditions par cycle */}
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="font-serif text-4xl text-violine mb-4">Conditions d'Admission</h2>
+                        <p className="text-gray-600 max-w-xl mx-auto">
+                            Documents requis selon le niveau d'inscription souhaité.
+                        </p>
+                    </motion.div>
+
+                    <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        {admissionData.map((item, index) => (
+                            <motion.div
+                                key={item.cycle}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className="bg-cream p-8 rounded-lg border-t-4 border-heliotrope"
+                            >
+                                <h3 className="font-serif text-2xl text-violine mb-2">{item.cycle}</h3>
+                                <p className="text-gold font-medium mb-6">{item.ages}</p>
+
+                                <div className="mb-6">
+                                    <h4 className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-3">
+                                        <FileText size={16} className="text-heliotrope" />
+                                        Documents requis
+                                    </h4>
+                                    <ul className="space-y-2">
+                                        {item.documents.map((doc, i) => (
+                                            <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
+                                                <CheckCircle size={14} className="text-green-500 mt-0.5 shrink-0" />
+                                                {doc}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {item.test && (
+                                    <div className="flex items-center gap-2 text-sm text-violine bg-violine/10 p-3 rounded">
+                                        <AlertCircle size={16} />
+                                        Test d'admission obligatoire
+                                    </div>
+                                )}
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Informations financières */}
+            <section className="py-20 bg-cream">
+                <div className="container mx-auto px-6">
+                    <div className="max-w-3xl mx-auto">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="bg-white p-8 md:p-12 rounded-lg shadow-lg"
+                        >
+                            <div className="flex items-center gap-4 mb-6">
+                                <CreditCard className="text-heliotrope" size={32} />
+                                <h2 className="font-serif text-3xl text-violine">Informations Financières</h2>
+                            </div>
+
+                            <div className="space-y-4 text-gray-600 mb-8">
+                                <p>
+                                    Les frais de scolarité varient selon le cycle et les options choisies
+                                    (cantine et transport). Ils incluent :
+                                </p>
+                                <ul className="space-y-2 ml-4">
+                                    <li className="flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-heliotrope"></span>
+                                        Frais d'inscription
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-heliotrope"></span>
+                                        Uniforme scolaire
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-heliotrope"></span>
+                                        Supports pédagogiques
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-heliotrope"></span>
+                                        Mois de juin inclus
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
+                                <div className="flex items-start gap-3">
+                                    <AlertCircle className="text-red-500 shrink-0 mt-0.5" size={20} />
+                                    <div>
+                                        <h4 className="font-bold text-red-700 mb-1">Note importante</h4>
+                                        <p className="text-red-600 text-sm">
+                                            La scolarité doit être réglée au plus tard le <strong>05 de chaque mois</strong>
+                                            sous peine de renvoi de l'élève.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Étapes */}
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-12"
+                    >
+                        <h2 className="font-serif text-3xl text-violine mb-4">Comment s'inscrire ?</h2>
+                    </motion.div>
+
+                    <div className="max-w-3xl mx-auto">
+                        <div className="space-y-6">
+                            {[
+                                { step: 1, title: 'Contactez-nous', desc: 'Appelez ou envoyez un message WhatsApp pour prendre rendez-vous.' },
+                                { step: 2, title: 'Visite de l\'école', desc: 'Découvrez nos locaux et rencontrez l\'équipe pédagogique.' },
+                                { step: 3, title: 'Dossier de candidature', desc: 'Déposez les documents requis selon le cycle choisi.' },
+                                { step: 4, title: 'Test d\'admission', desc: 'Pour l\'Élémentaire et le Collège uniquement.' },
+                                { step: 5, title: 'Confirmation', desc: 'Règlement des frais et finalisation de l\'inscription.' }
+                            ].map((item, i) => (
+                                <motion.div
+                                    key={item.step}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className="flex gap-6 items-start"
+                                >
+                                    <div className="w-12 h-12 rounded-full bg-heliotrope flex items-center justify-center text-white font-bold shrink-0">
+                                        {item.step}
+                                    </div>
+                                    <div>
+                                        <h3 className="font-serif text-xl text-violine mb-1">{item.title}</h3>
+                                        <p className="text-gray-600">{item.desc}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Contact */}
+            <section className="py-16 bg-gold">
+                <div className="container mx-auto px-6 text-center">
+                    <h2 className="font-serif text-3xl text-violine-dark mb-4">
+                        Des questions ?
+                    </h2>
+                    <p className="text-violine/80 mb-8">
+                        Notre équipe est à votre disposition pour vous accompagner.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="https://wa.me/221777010502"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-2 bg-violine text-white font-bold py-3 px-8 rounded shadow-lg hover:bg-violine-dark transition-colors"
+                        >
+                            <Phone size={18} />
+                            WhatsApp: +221 77 701 05 02
+                        </a>
+                        <Link
+                            to="/contact"
+                            className="border-2 border-violine text-violine font-bold py-3 px-8 rounded hover:bg-violine hover:text-white transition-colors"
+                        >
+                            Page Contact
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    );
+};
+
+export default Admissions;

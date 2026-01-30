@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+
+@theme {
+  /* === PALETTE UNIFORME JEANNE D'ARC === */
+
+  /* Héliotrope (Chemise) - Rose-Violet clair */
+  --color-heliotrope: #9966CC;
+  --color-heliotrope-light: #B794D6;
+  --color-heliotrope-dark: #7B4FA8;
+
+  /* Violine (Pantalon) - Violet profond */
+  --color-violine: #5B3A6F;
+  --color-violine-light: #7A4F94;
+  --color-violine-dark: #3D2549;
+
+  /* Or Académique (Accent Premium) */
+  --color-gold: #D4AF37;
+  --color-gold-light: #E4C75A;
+  --color-gold-dark: #B8972E;
+
+  /* Crème/Beige (Fond clair) */
+  --color-cream: #FDF8F3;
+  --color-cream-dark: #F5EDE4;
+
+  /* === Alias pour compatibilité === */
+  --color-primary: #5B3A6F;
+  --color-primary-light: #7A4F94;
+  --color-primary-dark: #3D2549;
+
+  --color-accent: #D4AF37;
+  --color-accent-hover: #B8972E;
+
+  --color-secondary: #ffffff;
+  --color-beige: #FDF8F3;
+
+  --color-terracotta: #9966CC;
+  --color-terracotta-light: #B794D6;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Merriweather', serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #2D2235;
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animations */
+@keyframes grow {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-grow {
+  animation: grow 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  color: var(--color-violine);
+}
+
+/* Gradient Signature Jeanne d'Arc */
+.gradient-uniform {
+  background: linear-gradient(135deg, var(--color-violine) 0%, var(--color-heliotrope) 100%);
+}
+
+.gradient-uniform-soft {
+  background: linear-gradient(135deg, var(--color-violine-dark) 0%, var(--color-violine) 50%, var(--color-heliotrope) 100%);
+}
+
+/* Text Gradient */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #E4C75A 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button Hover Effect */
+.btn-heliotrope {
+  background: linear-gradient(135deg, var(--color-heliotrope) 0%, var(--color-violine) 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-heliotrope:hover {
+  background: linear-gradient(135deg, var(--color-heliotrope-light) 0%, var(--color-heliotrope) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(91, 58, 111, 0.3);
+}
+
+/* Decorative Elements */
+.border-accent-gradient {
+  border-image: linear-gradient(135deg, var(--color-heliotrope), var(--color-gold)) 1;
+}
+
+/* Card Hover */
+.card-uniform {
+  transition: all 0.3s ease;
+}
+
+.card-uniform:hover {
+  border-color: var(--color-heliotrope);
+  box-shadow: 0 10px 40px rgba(153, 102, 204, 0.15);
+}
