@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Calendar, Bell, Clock, ArrowRight, Megaphone, BookOpen, Bus, Users, Info } from 'lucide-react';
+import { Calendar, Bell, Clock, ArrowRight, Megaphone, BookOpen, Bus, Users, Info, Camera } from 'lucide-react';
+import InteractiveCalendar from '../components/ui/InteractiveCalendar';
+import PhotoGallery from '../components/ui/PhotoGallery';
 
 // Données des actualités
 const actualites = [
     {
         id: 1,
         type: 'info',
-        date: '30 Janvier 2025',
+        date: '30 Janvier 2026',
         title: 'Pré-inscriptions 2026/2027 ouvertes',
         excerpt: 'Préparez la rentrée prochaine ! Les pré-inscriptions pour l\'année scolaire 2026/2027 sont désormais possibles. Renseignez-vous auprès du secrétariat.',
         icon: Info,
@@ -16,7 +18,7 @@ const actualites = [
     {
         id: 2,
         type: 'evenement',
-        date: '15 Février 2025',
+        date: '15 Février 2026',
         title: 'Journée Portes Ouvertes',
         excerpt: 'Venez découvrir notre école, rencontrer l\'équipe pédagogique et visiter nos installations. De 9h à 15h.',
         icon: Users,
@@ -25,7 +27,7 @@ const actualites = [
     {
         id: 3,
         type: 'info',
-        date: '20 Janvier 2025',
+        date: '20 Janvier 2026',
         title: 'Reprise des cours après les vacances',
         excerpt: 'Les cours reprennent normalement après les vacances de Noël. Tous les élèves sont attendus à 8h00.',
         icon: BookOpen,
@@ -34,7 +36,7 @@ const actualites = [
     {
         id: 4,
         type: 'service',
-        date: '10 Janvier 2025',
+        date: '10 Janvier 2026',
         title: 'Nouveaux itinéraires de transport',
         excerpt: 'Extension du service de transport scolaire vers le quartier Grand Mbour. Inscription auprès du secrétariat.',
         icon: Bus,
@@ -43,7 +45,7 @@ const actualites = [
     {
         id: 5,
         type: 'resultat',
-        date: '5 Janvier 2025',
+        date: '5 Janvier 2026',
         title: 'Résultats du 1er trimestre',
         excerpt: 'Les bulletins du premier trimestre sont disponibles. Les parents peuvent les récupérer au secrétariat.',
         icon: BookOpen,
@@ -51,16 +53,56 @@ const actualites = [
     }
 ];
 
-// Calendrier scolaire
-const calendrier = [
-    { periode: 'Rentrée scolaire', date: 'Octobre 2024', passed: true },
-    { periode: 'Vacances de Noël', date: '21 Déc - 6 Jan', passed: true },
-    { periode: 'Fin 1er Trimestre', date: 'Janvier 2025', passed: true },
-    { periode: 'Vacances de Février', date: '15 - 23 Fév', passed: false },
-    { periode: 'Fin 2ème Trimestre', date: 'Mars 2025', passed: false },
-    { periode: 'Vacances de Pâques', date: 'Avril 2025', passed: false },
-    { periode: 'Fin d\'année', date: 'Juin 2025', passed: false },
-    { periode: 'Inscriptions 2026/2027', date: 'Juil-Sept 2025', passed: false },
+// Événements pour le calendrier interactif
+const calendarEvents = [
+    // Vacances
+    { date: '2025-12-21', title: 'Début vacances de Noël', type: 'vacances', important: true },
+    { date: '2026-01-06', title: 'Fin vacances de Noël', type: 'vacances' },
+    { date: '2026-02-15', title: 'Début vacances de Février', type: 'vacances', important: true },
+    { date: '2026-02-23', title: 'Fin vacances de Février', type: 'vacances' },
+    { date: '2026-04-05', title: 'Début vacances de Pâques', type: 'vacances', important: true },
+    { date: '2026-04-20', title: 'Fin vacances de Pâques', type: 'vacances' },
+
+    // Examens
+    { date: '2026-01-15', title: 'Compositions 1er trimestre', type: 'examen', important: true },
+    { date: '2026-03-20', title: 'Compositions 2ème trimestre', type: 'examen', important: true },
+    { date: '2026-06-01', title: 'Début examens de fin d\'année', type: 'examen', important: true },
+    { date: '2026-06-15', title: 'CFEE / Entrée en 6ème', type: 'examen', important: true },
+
+    // Événements
+    { date: '2026-02-15', title: 'Journée Portes Ouvertes', type: 'evenement', important: true, description: 'De 9h à 15h' },
+    { date: '2026-03-08', title: 'Journée de la femme', type: 'evenement' },
+    { date: '2026-04-04', title: 'Fête de l\'Indépendance', type: 'evenement' },
+    { date: '2026-06-30', title: 'Fête de fin d\'année', type: 'evenement', important: true },
+
+    // Inscriptions
+    { date: '2026-07-01', title: 'Ouverture inscriptions 2026/2027', type: 'inscription', important: true },
+    { date: '2026-09-15', title: 'Clôture inscriptions', type: 'inscription', important: true },
+    { date: '2026-10-03', title: 'Rentrée scolaire 2026/2027', type: 'inscription', important: true },
+];
+
+// Photos de l'école
+const schoolPhotos = [
+    {
+        src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800",
+        alt: "Salle de classe",
+        caption: "Nos salles de classe modernes"
+    },
+    {
+        src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800",
+        alt: "Cour de récréation",
+        caption: "Espace de jeux sécurisé"
+    },
+    {
+        src: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800",
+        alt: "Élèves en classe",
+        caption: "Apprentissage interactif"
+    },
+    {
+        src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800",
+        alt: "Activités sportives",
+        caption: "Sport et bien-être"
+    },
 ];
 
 const Actualites = () => {
@@ -118,16 +160,20 @@ const Actualites = () => {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.1 }}
-                                        className={`p-6 rounded-lg border-l-4 transition-shadow hover:shadow-lg ${item.important
+                                        whileHover={{ x: 5 }}
+                                        className={`p-6 rounded-lg border-l-4 transition-all cursor-pointer hover:shadow-lg ${item.important
                                             ? 'bg-gold/10 border-gold'
                                             : 'bg-cream border-heliotrope'
                                             }`}
                                     >
                                         <div className="flex items-start gap-4">
-                                            <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 ${item.important ? 'bg-gold/20' : 'bg-heliotrope/10'
-                                                }`}>
+                                            <motion.div
+                                                whileHover={{ scale: 1.1, rotate: 5 }}
+                                                className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 ${item.important ? 'bg-gold/20' : 'bg-heliotrope/10'
+                                                    }`}
+                                            >
                                                 <item.icon className={item.important ? 'text-gold' : 'text-heliotrope'} size={24} />
-                                            </div>
+                                            </motion.div>
                                             <div className="flex-1">
                                                 <div className="flex items-center gap-3 mb-2 flex-wrap">
                                                     <span className="text-xs text-gray-500 flex items-center gap-1">
@@ -135,9 +181,14 @@ const Actualites = () => {
                                                         {item.date}
                                                     </span>
                                                     {item.important && (
-                                                        <span className="text-xs bg-gold text-violine-dark px-2 py-0.5 rounded-full font-bold">
+                                                        <motion.span
+                                                            initial={{ scale: 0.8 }}
+                                                            animate={{ scale: [1, 1.05, 1] }}
+                                                            transition={{ duration: 2, repeat: Infinity }}
+                                                            className="text-xs bg-gold text-violine-dark px-2 py-0.5 rounded-full font-bold"
+                                                        >
                                                             Important
-                                                        </span>
+                                                        </motion.span>
                                                     )}
                                                 </div>
                                                 <h3 className="font-serif text-xl text-violine mb-2">{item.title}</h3>
@@ -149,48 +200,39 @@ const Actualites = () => {
                             </div>
                         </div>
 
-                        {/* Sidebar - Calendrier */}
+                        {/* Sidebar - Calendrier Interactif */}
                         <div className="lg:col-span-1">
-                            <div className="sticky top-24">
-                                <div className="bg-violine rounded-lg p-6 text-white mb-8">
-                                    <div className="flex items-center gap-3 mb-6">
-                                        <Calendar className="text-gold" size={24} />
-                                        <h3 className="font-serif text-xl">Calendrier Scolaire</h3>
+                            <div className="sticky top-24 space-y-8">
+                                <div>
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <Calendar className="text-heliotrope" size={24} />
+                                        <h3 className="font-serif text-xl text-violine">Calendrier Scolaire</h3>
                                     </div>
-
-                                    <div className="space-y-4">
-                                        {calendrier.map((item, i) => (
-                                            <div
-                                                key={i}
-                                                className={`flex justify-between items-center pb-3 border-b border-heliotrope/30 last:border-0 ${item.passed ? 'opacity-50' : ''
-                                                    }`}
-                                            >
-                                                <span className={`text-sm ${item.passed ? 'line-through' : ''}`}>
-                                                    {item.periode}
-                                                </span>
-                                                <span className="text-gold text-xs font-medium">{item.date}</span>
-                                            </div>
-                                        ))}
-                                    </div>
+                                    <InteractiveCalendar events={calendarEvents} />
                                 </div>
 
                                 {/* Info Pré-inscription */}
-                                <div className="bg-gold/10 border border-gold rounded-lg p-6 mb-8">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    className="bg-gold/10 border border-gold rounded-lg p-6"
+                                >
                                     <h3 className="font-serif text-lg text-violine mb-3 flex items-center gap-2">
                                         <Bell className="text-gold" size={18} />
                                         Pré-inscription
                                     </h3>
                                     <p className="text-gray-600 text-sm mb-4">
-                                        Vous souhaitez inscrire votre enfant pour la rentrée 2025 ?
+                                        Vous souhaitez inscrire votre enfant pour la rentrée 2026 ?
                                         Déposez une demande de pré-inscription dès maintenant.
                                     </p>
                                     <Link
                                         to="/admissions"
-                                        className="inline-flex items-center gap-2 text-violine font-bold text-sm hover:text-heliotrope"
+                                        className="inline-flex items-center gap-2 text-violine font-bold text-sm hover:text-heliotrope transition-colors"
                                     >
                                         En savoir plus <ArrowRight size={14} />
                                     </Link>
-                                </div>
+                                </motion.div>
 
                                 {/* Contact rapide */}
                                 <div className="bg-cream rounded-lg p-6">
@@ -214,22 +256,47 @@ const Actualites = () => {
                 </div>
             </section>
 
+            {/* Galerie Photos */}
+            <section className="py-20 bg-cream">
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-12"
+                    >
+                        <span className="text-heliotrope uppercase tracking-widest text-sm font-bold mb-4 flex items-center justify-center gap-2">
+                            <Camera size={18} />
+                            Galerie Photos
+                        </span>
+                        <h2 className="font-serif text-4xl text-violine mb-4">La vie à l'école</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">
+                            Découvrez notre environnement d'apprentissage à travers ces images de notre quotidien.
+                        </p>
+                    </motion.div>
+
+                    <PhotoGallery images={schoolPhotos} columns={4} />
+                </div>
+            </section>
+
             {/* CTA */}
             <section className="py-16 gradient-uniform">
                 <div className="container mx-auto px-6 text-center">
                     <h2 className="font-serif text-3xl text-white mb-4">
-                        Préparez la rentrée 2025
+                        Préparez la rentrée 2026
                     </h2>
                     <p className="text-white/90 mb-8 max-w-xl mx-auto">
                         Les pré-inscriptions sont ouvertes. Réservez une place pour votre enfant dès maintenant.
                     </p>
-                    <Link
-                        to="/admissions"
-                        className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-violine-dark font-bold py-3 px-8 rounded shadow-lg transition-colors"
-                    >
-                        Pré-inscription 2026/2027
-                        <ArrowRight size={18} />
-                    </Link>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                        <Link
+                            to="/admissions"
+                            className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-violine-dark font-bold py-3 px-8 rounded shadow-lg transition-colors"
+                        >
+                            Pré-inscription 2026/2027
+                            <ArrowRight size={18} />
+                        </Link>
+                    </motion.div>
                 </div>
             </section>
 

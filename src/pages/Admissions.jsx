@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FileText, Calendar, CreditCard, AlertCircle, CheckCircle, Phone, Info, Clock } from 'lucide-react';
+import { FileText, Calendar, CreditCard, AlertCircle, CheckCircle, Phone, Info, Clock, HelpCircle, Users, Bus, Book, Utensils } from 'lucide-react';
+import FAQAccordion from '../components/ui/FAQAccordion';
 
 const admissionData = [
     {
@@ -32,6 +33,39 @@ const admissionData = [
             '1 livret scolaire'
         ],
         test: true
+    }
+];
+
+const faqItems = [
+    {
+        question: "Quand puis-je inscrire mon enfant ?",
+        answer: "Les inscriptions officielles ont lieu de Juillet à Septembre. Cependant, vous pouvez déposer une pré-inscription à tout moment de l'année pour réserver une place.",
+        icon: Calendar
+    },
+    {
+        question: "Y a-t-il un test d'entrée ?",
+        answer: "Oui, un test d'admission est obligatoire pour l'Élémentaire et le Collège. Il permet d'évaluer le niveau de l'élève et de l'orienter vers la classe appropriée. Pour le Préscolaire, il n'y a pas de test.",
+        icon: Book
+    },
+    {
+        question: "Proposez-vous un service de transport ?",
+        answer: "Oui, nous disposons d'un service de transport scolaire couvrant plusieurs quartiers de Mbour. Les frais de transport sont en supplément de la scolarité. Contactez le secrétariat pour connaître les itinéraires.",
+        icon: Bus
+    },
+    {
+        question: "Y a-t-il une cantine ?",
+        answer: "Oui, l'école propose un service de cantine avec des repas équilibrés. Les frais de cantine sont optionnels et facturés mensuellement.",
+        icon: Utensils
+    },
+    {
+        question: "Quelle est la taille des classes ?",
+        answer: "Nous maintenons des effectifs raisonnables pour garantir un suivi personnalisé. Les classes comptent en moyenne 25 à 30 élèves avec un encadrement adapté.",
+        icon: Users
+    },
+    {
+        question: "L'école est-elle vraiment bilingue ?",
+        answer: "Oui ! L'anglais est enseigné dès le Préscolaire et renforcé tout au long du cursus. Nos élèves développent des compétences solides dans les deux langues.",
+        icon: Book
     }
 ];
 
@@ -132,7 +166,8 @@ const Admissions = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="bg-cream p-8 rounded-lg border-t-4 border-heliotrope"
+                                whileHover={{ y: -5 }}
+                                className="bg-cream p-8 rounded-lg border-t-4 border-heliotrope shadow-lg hover:shadow-xl transition-all"
                             >
                                 <h3 className="font-serif text-2xl text-violine mb-2">{item.cycle}</h3>
                                 <p className="text-gold font-medium mb-6">{item.ages}</p>
@@ -164,54 +199,68 @@ const Admissions = () => {
                 </div>
             </section>
 
-            {/* Informations financières */}
+            {/* FAQ Section */}
             <section className="py-20 bg-cream">
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-12"
+                    >
+                        <span className="text-heliotrope uppercase tracking-widest text-sm font-bold mb-4 flex items-center justify-center gap-2">
+                            <HelpCircle size={18} />
+                            FAQ
+                        </span>
+                        <h2 className="font-serif text-4xl text-violine mb-4">Questions Fréquentes</h2>
+                        <p className="text-gray-600 max-w-xl mx-auto">
+                            Trouvez rapidement les réponses à vos questions sur les admissions.
+                        </p>
+                    </motion.div>
+
+                    <div className="max-w-3xl mx-auto">
+                        <FAQAccordion items={faqItems} />
+                    </div>
+                </div>
+            </section>
+
+            {/* Informations financières */}
+            <section className="py-20 bg-white">
                 <div className="container mx-auto px-6">
                     <div className="max-w-3xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="bg-white p-8 md:p-12 rounded-lg shadow-lg"
+                            className="bg-gradient-to-br from-violine to-heliotrope p-8 md:p-12 rounded-lg shadow-xl text-white"
                         >
                             <div className="flex items-center gap-4 mb-6">
-                                <CreditCard className="text-heliotrope" size={32} />
-                                <h2 className="font-serif text-3xl text-violine">Informations Financières</h2>
+                                <CreditCard className="text-gold" size={32} />
+                                <h2 className="font-serif text-3xl">Informations Financières</h2>
                             </div>
 
-                            <div className="space-y-4 text-gray-600 mb-8">
-                                <p>
+                            <div className="space-y-4 mb-8">
+                                <p className="text-white/90">
                                     Les frais de scolarité varient selon le cycle et les options choisies
                                     (cantine et transport). Ils incluent :
                                 </p>
-                                <ul className="space-y-2 ml-4">
-                                    <li className="flex items-center gap-2">
-                                        <span className="w-2 h-2 rounded-full bg-heliotrope"></span>
-                                        Frais d'inscription
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <span className="w-2 h-2 rounded-full bg-heliotrope"></span>
-                                        Uniforme scolaire
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <span className="w-2 h-2 rounded-full bg-heliotrope"></span>
-                                        Supports pédagogiques
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <span className="w-2 h-2 rounded-full bg-heliotrope"></span>
-                                        Mois de juin inclus
-                                    </li>
+                                <ul className="grid grid-cols-2 gap-3">
+                                    {['Frais d\'inscription', 'Uniforme scolaire', 'Supports pédagogiques', 'Mois de juin inclus'].map((item, i) => (
+                                        <li key={i} className="flex items-center gap-2 text-white/90">
+                                            <CheckCircle size={16} className="text-gold" />
+                                            {item}
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
 
-                            <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
+                            <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg">
                                 <div className="flex items-start gap-3">
-                                    <AlertCircle className="text-red-500 shrink-0 mt-0.5" size={20} />
+                                    <AlertCircle className="text-gold shrink-0 mt-0.5" size={20} />
                                     <div>
-                                        <h4 className="font-bold text-red-700 mb-1">Note importante</h4>
-                                        <p className="text-red-600 text-sm">
-                                            La scolarité doit être réglée au plus tard le <strong>05 de chaque mois</strong>
-                                            sous peine de renvoi de l'élève.
+                                        <h4 className="font-bold text-gold mb-1">Note importante</h4>
+                                        <p className="text-white/90 text-sm">
+                                            La scolarité doit être réglée au plus tard le <strong>05 de chaque mois</strong>.
                                         </p>
                                     </div>
                                 </div>
@@ -222,7 +271,7 @@ const Admissions = () => {
             </section>
 
             {/* Étapes */}
-            <section className="py-20 bg-white">
+            <section className="py-20 bg-cream">
                 <div className="container mx-auto px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -242,7 +291,7 @@ const Admissions = () => {
                             {[
                                 { step: 1, title: 'Pré-inscription (toute l\'année)', desc: 'Contactez-nous par WhatsApp ou téléphone pour manifester votre intérêt.' },
                                 { step: 2, title: 'Visite de l\'école', desc: 'Découvrez nos locaux et rencontrez l\'équipe pédagogique.' },
-                                { step: 3, title: 'Inscription officielle (Août-Sept)', desc: 'Déposez les documents requis selon le cycle choisi.' },
+                                { step: 3, title: 'Inscription officielle (Juil-Sept)', desc: 'Déposez les documents requis selon le cycle choisi.' },
                                 { step: 4, title: 'Test d\'admission', desc: 'Pour l\'Élémentaire et le Collège uniquement.' },
                                 { step: 5, title: 'Confirmation', desc: 'Règlement des frais et finalisation de l\'inscription.' }
                             ].map((item, i) => (
@@ -252,13 +301,16 @@ const Admissions = () => {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="flex gap-6 items-start"
+                                    className="flex gap-6 items-start group"
                                 >
-                                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold shrink-0 ${item.step === 1 ? 'bg-gold' : 'bg-heliotrope'
-                                        }`}>
+                                    <motion.div
+                                        whileHover={{ scale: 1.1 }}
+                                        className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold shrink-0 shadow-lg ${item.step === 1 ? 'bg-gold' : 'bg-heliotrope'
+                                            }`}
+                                    >
                                         {item.step}
-                                    </div>
-                                    <div>
+                                    </motion.div>
+                                    <div className="group-hover:translate-x-2 transition-transform">
                                         <h3 className="font-serif text-xl text-violine mb-1">{item.title}</h3>
                                         <p className="text-gray-600">{item.desc}</p>
                                     </div>
@@ -279,7 +331,9 @@ const Admissions = () => {
                         Contactez-nous pour une pré-inscription ou pour toute question.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
+                        <motion.a
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                             href="https://wa.me/221777010502?text=Bonjour, je souhaite des informations sur les inscriptions."
                             target="_blank"
                             rel="noopener noreferrer"
@@ -287,7 +341,7 @@ const Admissions = () => {
                         >
                             <Phone size={18} />
                             WhatsApp: +221 77 701 05 02
-                        </a>
+                        </motion.a>
                         <Link
                             to="/contact"
                             className="border-2 border-violine text-violine font-bold py-3 px-8 rounded hover:bg-violine hover:text-white transition-colors"
