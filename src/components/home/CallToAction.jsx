@@ -21,16 +21,16 @@ const CallToAction = () => {
 
             <div className="container mx-auto px-6 relative z-10">
                 <span className="text-gold uppercase tracking-widest text-sm font-bold mb-4 block">
-                    Année Scolaire 2025/2026
+                    Année Scolaire 2026/2027
                 </span>
 
                 <h2 className="font-serif text-4xl md:text-5xl text-white mb-6">
-                    Prêts à écrire l'avenir ?
+                    Préparez l'avenir de votre enfant
                 </h2>
 
                 <p className="text-white/90 text-lg max-w-2xl mx-auto mb-10 font-light">
-                    Les inscriptions sont ouvertes. Rejoignez une communauté d'excellence
-                    où chaque élève est accompagné vers sa réussite.
+                    Les pré-inscriptions pour la rentrée prochaine sont ouvertes.
+                    Réservez dès maintenant une place pour votre enfant.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -38,7 +38,7 @@ const CallToAction = () => {
                         to="/admissions"
                         className="group inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-violine-dark font-bold py-4 px-10 rounded shadow-lg shadow-gold/20 transition-all hover:scale-105"
                     >
-                        Candidater maintenant
+                        Pré-inscription 2026/2027
                         <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                     </Link>
 

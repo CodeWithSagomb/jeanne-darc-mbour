@@ -109,7 +109,7 @@ const HeroArtistic = () => {
                     className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                 >
                     <Button to="/admissions" variant="accent" className="px-10 py-4 text-lg shadow-lg shadow-gold/30 hover:scale-105 transition-transform">
-                        Inscriptions 2025/2026
+                        Pré-inscription 2026/2027
                     </Button>
                     <Button to="/institution" variant="outline" className="px-8 py-4 border-white/30 text-white hover:bg-white/10">
                         Découvrir l'école

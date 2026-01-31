@@ -9,6 +9,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "L'Institution", path: '/institution' },
     { name: 'Pédagogie', path: '/pedagogie' },
+    { name: 'Actualités', path: '/actualites' },
     { name: 'Admissions', path: '/admissions' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -49,7 +50,7 @@ const Navbar = () => {
             to="/admissions"
             className="bg-gold hover:bg-gold-dark text-violine-dark font-bold py-2.5 px-6 rounded shadow-md transition-all hover:scale-105 uppercase text-sm tracking-wide"
           >
-            Inscriptions
+            Pré-inscription
           </Link>
         </div>
 

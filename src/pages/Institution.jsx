@@ -191,7 +191,7 @@ const Institution = () => {
                         Rejoignez notre communauté
                     </h2>
                     <p className="text-violine/80 mb-8 max-w-xl mx-auto">
-                        Les inscriptions pour l'année scolaire 2025/2026 sont ouvertes.
+                        Les pré-inscriptions pour l'année scolaire 2026/2027 sont ouvertes.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link

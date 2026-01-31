@@ -5,6 +5,7 @@ import Institution from './pages/Institution';
 import Pedagogie from './pages/Pedagogie';
 import Admissions from './pages/Admissions';
 import Contact from './pages/Contact';
+import Actualites from './pages/Actualites';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="institution" element={<Institution />} />
         <Route path="pedagogie" element={<Pedagogie />} />
+        <Route path="actualites" element={<Actualites />} />
         <Route path="admissions" element={<Admissions />} />
         <Route path="contact" element={<Contact />} />
         <Route path="*" element={<div className="p-20 text-center">Page non trouvée</div>} />
