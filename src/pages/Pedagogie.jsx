@@ -46,7 +46,7 @@ const Pedagogie = () => {
             <section className="relative py-32 gradient-uniform overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
                     <img
-                        src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                        src="/images/gallery/teacher.png"
                         alt="Salle de classe"
                         className="w-full h-full object-cover"
                     />

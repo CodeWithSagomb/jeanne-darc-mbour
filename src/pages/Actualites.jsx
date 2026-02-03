@@ -84,24 +84,24 @@ const calendarEvents = [
 // Photos de l'école
 const schoolPhotos = [
     {
-        src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800",
+        src: "/images/backgrounds/hero-classroom.png",
         alt: "Salle de classe",
         caption: "Nos salles de classe modernes"
     },
     {
-        src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800",
-        alt: "Cour de récréation",
-        caption: "Espace de jeux sécurisé"
+        src: "/images/backgrounds/campus.png",
+        alt: "Campus de l'école",
+        caption: "Notre campus accueillant"
     },
     {
-        src: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800",
-        alt: "Élèves en classe",
+        src: "/images/gallery/teacher.png",
+        alt: "Cours de mathématiques",
         caption: "Apprentissage interactif"
     },
     {
-        src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800",
-        alt: "Activités sportives",
-        caption: "Sport et bien-être"
+        src: "/images/gallery/preschool.png",
+        alt: "Préscolaire",
+        caption: "Éveil et découverte"
     },
 ];
 

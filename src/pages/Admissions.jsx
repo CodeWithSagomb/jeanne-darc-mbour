@@ -77,7 +77,7 @@ const Admissions = () => {
             <section className="relative py-32 gradient-uniform overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
                     <img
-                        src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                        src="/images/gallery/students-writing.png"
                         alt="Inscription"
                         className="w-full h-full object-cover"
                     />

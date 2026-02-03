@@ -10,7 +10,7 @@ const Institution = () => {
             <section className="relative py-32 gradient-uniform overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
                     <img
-                        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                        src="/images/backgrounds/campus.png"
                         alt="Campus"
                         className="w-full h-full object-cover"
                     />
@@ -37,7 +37,7 @@ const Institution = () => {
                     <div className="max-w-5xl mx-auto">
                         <div className="grid md:grid-cols-5 gap-12 items-center">
 
-                            {/* Photo Placeholder */}
+                            {/* Photo du Fondateur */}
                             <motion.div
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -46,15 +46,12 @@ const Institution = () => {
                             >
                                 <div className="relative">
                                     <div className="absolute -inset-4 border-2 border-heliotrope/30 rounded-lg"></div>
-                                    <div className="aspect-[3/4] gradient-uniform rounded-lg overflow-hidden relative">
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="text-center text-white/80">
-                                                <div className="w-24 h-24 rounded-full bg-gold/30 mx-auto mb-4 flex items-center justify-center">
-                                                    <span className="text-4xl font-serif text-gold">HM</span>
-                                                </div>
-                                                <p className="text-sm">Photo à venir</p>
-                                            </div>
-                                        </div>
+                                    <div className="aspect-[4/5] rounded-lg overflow-hidden relative shadow-xl">
+                                        <img
+                                            src="/images/pasteur-herve.jpg"
+                                            alt="Pasteur HERVE Martis et son épouse"
+                                            className="w-full h-full object-cover object-top"
+                                        />
                                     </div>
                                 </div>
                             </motion.div>

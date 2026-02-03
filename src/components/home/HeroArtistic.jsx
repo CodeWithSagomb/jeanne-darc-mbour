@@ -24,13 +24,15 @@ const HeroArtistic = () => {
                 <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-gold blur-[120px]"></div>
             </div>
 
-            {/* Background Image Overlay */}
+            {/* Background Image - École Jeanne d'Arc */}
             <div className="absolute inset-0 z-5">
                 <img
-                    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-                    alt="École"
-                    className="w-full h-full object-cover opacity-20 mix-blend-overlay"
+                    src="/images/backgrounds/ecole-facade.jpg"
+                    alt="École Académique Bilingue Jeanne d'Arc de Mbour"
+                    className="w-full h-full object-cover opacity-50"
                 />
+                {/* Overlay gradient pour lisibilité du texte */}
+                <div className="absolute inset-0 bg-gradient-to-b from-violine/70 via-violine/50 to-violine/80"></div>
             </div>
 
             {/* Golden vertical lines */}
@@ -94,7 +96,7 @@ const HeroArtistic = () => {
                     {['Travail', 'Discipline', 'Réussite'].map((value) => (
                         <span
                             key={value}
-                            className="px-5 py-2 border border-gold/50 text-gold text-xs md:text-sm uppercase tracking-widest font-medium rounded-full backdrop-blur-sm bg-white/5"
+                            className="px-6 py-3 bg-gold/60 text-violine-dark text-sm md:text-base uppercase tracking-widest font-bold rounded-full shadow-lg shadow-gold/40 backdrop-blur-sm"
                         >
                             {value}
                         </span>

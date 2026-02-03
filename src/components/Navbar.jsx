@@ -46,8 +46,8 @@ const Navbar = () => {
     <>
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-            ? 'bg-violine/95 backdrop-blur-md shadow-lg py-2'
-            : 'bg-violine py-4'
+          ? 'bg-violine/95 backdrop-blur-md shadow-lg py-2'
+          : 'bg-violine py-4'
           }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -65,7 +65,7 @@ const Navbar = () => {
           {/* Logo Section */}
           <Link to="/" className="flex items-center gap-3 group">
             <motion.img
-              src="/src/assets/images/logo.png"
+              src="/logo.png"
               alt="Logo Jeanne d'Arc"
               className={`object-contain bg-white/10 rounded-lg p-1 transition-all duration-300 ${isScrolled ? 'h-10' : 'h-14'
                 }`}
@@ -94,8 +94,8 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 className={`relative text-sm font-medium transition-colors uppercase tracking-wide py-2 ${isActive(link.path)
-                    ? 'text-gold'
-                    : 'text-white/80 hover:text-gold'
+                  ? 'text-gold'
+                  : 'text-white/80 hover:text-gold'
                   }`}
               >
                 {link.name}
@@ -173,8 +173,8 @@ const Navbar = () => {
                     <Link
                       to={link.path}
                       className={`block text-lg font-medium py-3 border-b border-heliotrope/10 transition-colors ${isActive(link.path)
-                          ? 'text-gold border-gold/30'
-                          : 'text-white/90 hover:text-gold hover:pl-2'
+                        ? 'text-gold border-gold/30'
+                        : 'text-white/90 hover:text-gold hover:pl-2'
                         }`}
                       onClick={() => setIsOpen(false)}
                     >

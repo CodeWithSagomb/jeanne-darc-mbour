@@ -4,34 +4,34 @@ import PhotoGallery from '../ui/PhotoGallery';
 
 const schoolPhotos = [
     {
-        src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800",
+        src: "/images/backgrounds/ecole-facade.jpg",
+        alt: "Façade de l'école Jeanne d'Arc",
+        caption: "Notre école à Mbour"
+    },
+    {
+        src: "/images/backgrounds/hero-classroom.png",
         alt: "Salle de classe",
         caption: "Nos salles de classe modernes"
     },
     {
-        src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800",
-        alt: "Cour de récréation",
-        caption: "Espace de jeux sécurisé"
-    },
-    {
-        src: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800",
-        alt: "Bibliothèque",
-        caption: "Notre bibliothèque"
-    },
-    {
-        src: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800",
-        alt: "Élèves en classe",
+        src: "/images/gallery/teacher.png",
+        alt: "Enseignante au tableau",
         caption: "Apprentissage interactif"
     },
     {
-        src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800",
-        alt: "Activités sportives",
-        caption: "Sport et bien-être"
+        src: "/images/gallery/preschool.png",
+        alt: "Préscolaire",
+        caption: "Éveil et découverte"
     },
     {
-        src: "https://images.unsplash.com/photo-1588072432836-e10032774350?w=800",
-        alt: "Événement scolaire",
-        caption: "Fête de fin d'année"
+        src: "/images/gallery/students-writing.png",
+        alt: "Élèves qui écrivent",
+        caption: "Travail et concentration"
+    },
+    {
+        src: "/images/backgrounds/campus.png",
+        alt: "Campus de l'école",
+        caption: "Un environnement accueillant"
     },
 ];
 
