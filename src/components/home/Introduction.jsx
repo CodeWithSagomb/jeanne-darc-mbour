@@ -16,17 +16,16 @@ const Introduction = () => {
                         className="w-full lg:w-1/2 relative"
                     >
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
-                            {/* Fallback color/placeholder if image fails, but using Unsplash for demo */}
-                            <div className="absolute inset-0 bg-primary/20 mix-blend-multiply z-10"></div>
+                            <div className="absolute inset-0 bg-violine/20 mix-blend-multiply z-10"></div>
                             <img
-                                src="https://images.unsplash.com/photo-1544531696-2822a0996a45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                                alt="Élèves en classe"
+                                src="/images/backgrounds/ecole-facade.jpg"
+                                alt="École Jeanne d'Arc de Mbour"
                                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                             />
                         </div>
                         {/* Decorative element */}
-                        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent rounded-full -z-10 opacity-50 blur-2xl"></div>
-                        <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary rounded-full -z-10 opacity-50 blur-2xl"></div>
+                        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gold rounded-full -z-10 opacity-50 blur-2xl"></div>
+                        <div className="absolute -top-6 -left-6 w-32 h-32 bg-violine rounded-full -z-10 opacity-50 blur-2xl"></div>
                     </motion.div>
 
                     {/* Text Content */}
@@ -47,17 +46,17 @@ const Introduction = () => {
 
                         <div className="flex flex-wrap gap-4">
                             <div className="border-l-4 border-accent pl-4">
-                                <span className="block text-3xl font-bold text-primary">2019</span>
+                                <span className="block text-3xl font-bold text-violine">2019</span>
                                 <span className="text-sm text-gray-500 uppercase tracking-wide">Année de fondation</span>
                             </div>
                             <div className="border-l-4 border-accent pl-4">
-                                <span className="block text-3xl font-bold text-primary">Bi-lingue</span>
+                                <span className="block text-3xl font-bold text-violine">Bi-lingue</span>
                                 <span className="text-sm text-gray-500 uppercase tracking-wide">Français / Anglais</span>
                             </div>
                         </div>
 
                         <div className="mt-8">
-                            <Button to="/institution" variant="primary">En savoir plus</Button>
+                            <Button to="/institution" variant="accent">En savoir plus</Button>
                         </div>
                     </motion.div>
 
