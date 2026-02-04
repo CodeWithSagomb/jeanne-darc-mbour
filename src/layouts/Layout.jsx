@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import FloatingWhatsApp from '../components/FloatingWhatsApp';
 import CustomCursor from '../components/ui/CustomCursor';
 import ScrollToTop from '../components/ui/ScrollToTop';
 import SmoothScroll from '../components/ui/SmoothScroll';
@@ -18,9 +19,11 @@ const Layout = () => {
                     <Outlet />
                 </main>
                 <Footer />
+                <FloatingWhatsApp />
             </div>
         </ToastProvider>
     );
 };
 
 export default Layout;
+
