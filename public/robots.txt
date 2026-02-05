@@ -1,0 +1,11 @@
+# Robots.txt pour École Jeanne d'Arc de Mbour
+# https://ecolejeannedarc-mbour.sn/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ecolejeannedarc-mbour.sn/sitemap.xml
+
+# Dossiers à ne pas indexer
+Disallow: /assets/
