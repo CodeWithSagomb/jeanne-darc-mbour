@@ -29,6 +29,11 @@ const schoolPhotos = [
         caption: "Moments de récréation"
     },
     {
+        src: "/images/gallery/cour.jpg",
+        alt: "Cour de l'école",
+        caption: "Notre cour avec aire de jeux"
+    },
+    {
         src: "/images/pasteur-herve.jpg",
         alt: "Pasteur HERVE Martis",
         caption: "Notre fondateur"
