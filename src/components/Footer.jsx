@@ -117,6 +117,9 @@ const Footer = () => {
                 {/* Bottom */}
                 <div className="border-t border-heliotrope/20 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
                     <p>&copy; {new Date().getFullYear()} École Académique Bilingue Jeanne d'Arc de Mbour. Tous droits réservés.</p>
+                    <p className="mt-2 md:mt-0 text-xs text-gray-500">
+                        Conçu avec 💜 par <span className="text-heliotrope-light font-medium">cSagombaye</span>
+                    </p>
                     <button
                         onClick={scrollToTop}
                         className="mt-4 md:mt-0 flex items-center gap-2 text-heliotrope-light hover:text-gold transition-colors"
