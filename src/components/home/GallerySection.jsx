@@ -9,24 +9,24 @@ const schoolPhotos = [
         caption: "Notre école à Mbour"
     },
     {
-        src: "/images/gallery/preschool-area.jpg",
-        alt: "Espace préscolaire coloré",
-        caption: "Notre espace préscolaire"
+        src: "/images/gallery/cantine.jpg",
+        alt: "Cantine scolaire",
+        caption: "Notre cantine"
     },
     {
-        src: "/images/gallery/school-bus.jpg",
-        alt: "Bus scolaire Jeanne d'Arc",
-        caption: "Transport scolaire"
+        src: "/images/gallery/transport.jpg",
+        alt: "Transport scolaire",
+        caption: "Service de transport"
     },
     {
-        src: "/images/gallery/students-playing.jpg",
-        alt: "Élèves en récréation",
+        src: "/images/gallery/elementaire.jpg",
+        alt: "Classe élémentaire",
+        caption: "Cours en élémentaire"
+    },
+    {
+        src: "/images/gallery/recreation.jpg",
+        alt: "Récréation",
         caption: "Moments de récréation"
-    },
-    {
-        src: "/images/gallery/classroom-lesson.jpg",
-        alt: "Cours en classe",
-        caption: "Apprentissage en classe"
     },
     {
         src: "/images/pasteur-herve.jpg",
