@@ -96,7 +96,21 @@ const Footer = () => {
                                 </a>
                             </li>
                         </ul>
-                        <p className="text-gray-500 text-xs mt-4">Secrétariat : Lun-Ven 08h-16h</p>
+
+                        {/* Horaires d'ouverture */}
+                        <div className="mt-6 p-4 bg-violine/50 rounded-lg border border-heliotrope/20">
+                            <h5 className="font-bold text-gold text-sm mb-2">🕐 Horaires d'ouverture</h5>
+                            <div className="text-gray-300 text-sm space-y-1">
+                                <p className="flex justify-between">
+                                    <span>Lundi - Vendredi</span>
+                                    <span className="text-white font-medium">7h - 17h</span>
+                                </p>
+                                <p className="flex justify-between">
+                                    <span>Samedi - Dimanche</span>
+                                    <span className="text-red-400 font-medium">Fermé</span>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
