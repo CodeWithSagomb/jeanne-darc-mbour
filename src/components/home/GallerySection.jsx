@@ -9,29 +9,29 @@ const schoolPhotos = [
         caption: "Notre école à Mbour"
     },
     {
-        src: "/images/backgrounds/hero-classroom.png",
-        alt: "Salle de classe",
-        caption: "Nos salles de classe modernes"
+        src: "/images/gallery/preschool-area.jpg",
+        alt: "Espace préscolaire coloré",
+        caption: "Notre espace préscolaire"
     },
     {
-        src: "/images/gallery/teacher.png",
-        alt: "Enseignante au tableau",
-        caption: "Apprentissage interactif"
+        src: "/images/gallery/school-bus.jpg",
+        alt: "Bus scolaire Jeanne d'Arc",
+        caption: "Transport scolaire"
     },
     {
-        src: "/images/gallery/preschool.png",
-        alt: "Préscolaire",
-        caption: "Éveil et découverte"
+        src: "/images/gallery/students-playing.jpg",
+        alt: "Élèves en récréation",
+        caption: "Moments de récréation"
     },
     {
-        src: "/images/gallery/students-writing.png",
-        alt: "Élèves qui écrivent",
-        caption: "Travail et concentration"
+        src: "/images/gallery/classroom-lesson.jpg",
+        alt: "Cours en classe",
+        caption: "Apprentissage en classe"
     },
     {
-        src: "/images/backgrounds/campus.png",
-        alt: "Campus de l'école",
-        caption: "Un environnement accueillant"
+        src: "/images/pasteur-herve.jpg",
+        alt: "Pasteur HERVE Martis",
+        caption: "Notre fondateur"
     },
 ];
 
